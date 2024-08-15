@@ -1,0 +1,112 @@
+{% extends 'home.html' %}
+
+{% block title %}Blog List{% endblock %}
+
+{% block content %}
+    <h1>Blog Posts</h1>
+    <style>
+        /* Styles for Blog List Page */
+        .categories-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        section {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .posts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .post-item {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .post-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .post-item h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .post-item p {
+            font-size: 0.9em;
+            color: #666;
+            margin: 0;
+        }
+
+        .btn {
+            background-color: #0044cc;
+            color: #ffffff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0033aa;
+        }
+
+        .delete-btn {
+            background-color: #cc0000;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .delete-btn:hover {
+            background-color: #a30000;
+        }
+    </style>
+
+    <div class="categories-container">
+        {% for category, posts in categories.items %}
+            <section>
+                <h2>{{ category }}</h2>
+                <div class="posts-container">
+                    {% for post in posts %}
+                        <div class="post-item">
+                            <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                            <h3>{{ post.title }}</h3>
+                            <p>{{ post.summary|slice:":100" }}{% if post.summary|length > 100 %}...{% endif %}</p>
+                            <a href="{% url 'blog_detail' post.id %}" class="btn">Read More</a>
+                            {% if user.is_authenticated and user.user_type == 'doctor' and post.author == user %}
+                                <form action="{% url 'delete_blog' post.id %}" method="post" style="display:inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn delete-btn">Delete Post</button>
+                                </form>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+        {% endfor %}
+    </div>
+{% endblock %}

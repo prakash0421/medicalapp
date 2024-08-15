@@ -1,0 +1,106 @@
+{% extends 'home.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h1>Sign Up</h1>
+    <form method="post" enctype="multipart/form-data" class="form">
+        {% csrf_token %}
+        
+        <!-- Display non-field errors -->
+        {% if form.non_field_errors %}
+            <div class="form-errors">
+                {% for error in form.non_field_errors %}
+                    <p class="error">{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        <!-- Display individual form fields -->
+        {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                    <div class="text-danger">
+                        {% for error in field.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        
+        <button type="submit" class="btn">Sign Up</button>
+    </form>
+
+    <!-- Display messages -->
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="message">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
+<!-- Internal CSS -->
+<style>
+    .form-container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-errors {
+        background-color: #f8d7da; /* Light red background for errors */
+        color: #721c24; /* Dark red text color for errors */
+        padding: 10px;
+        border: 1px solid #f5c6cb; /* Lighter red border */
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .text-danger {
+        color: #dc3545; /* Red text color for field errors */
+    }
+
+    .messages {
+        list-style: none;
+        padding: 0;
+    }
+
+    .message {
+        background-color: #f8d7da; /* Light red background for messages */
+        color: #721c24; /* Dark red text color for messages */
+        padding: 10px;
+        border: 1px solid #f5c6cb; /* Lighter red border */
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    .btn {
+        background-color: #dc3545; /* Red background for button */
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: #c82333; /* Darker red background for button on hover */
+    }
+</style>
+{% endblock %}

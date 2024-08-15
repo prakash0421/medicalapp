@@ -1,0 +1,290 @@
+/* Base Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    background-color: #0044cc; /* Blue background */
+    padding: 10px 0;
+    display: flex;
+    justify-content: center; /* Center the navbar items horizontally */
+    align-items: center; /* Center items vertically */
+    position: relative; /* Ensure positioning is relative for child elements */
+}
+
+.navbar-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-list li {
+    margin: 0 15px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #ffffff; /* White text color */
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link i {
+    margin-right: 8px; /* Spacing between icon and text */
+}
+
+.nav-link:hover {
+    color: #d1d1d1; /* Light grey color on hover */
+}
+
+.content {
+    padding: 20px;
+}
+
+/* Hero Section */
+.hero {
+    background-color: transparent; /* Removed background color */
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    position: relative; /* Ensure relative positioning for children */
+}
+
+.hero-text {
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text */
+    display: inline-block;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.hero-btn {
+    background-color: #ffffff; /* White background */
+    color: #0056a0; /* Matching blue text color */
+    padding: 15px 25px;
+    border-radius: 6px;
+    font-size: 18px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px; /* Space above button */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center; /* Ensure text is centered */
+    border: 1px solid #0056a0; /* Border to make it more distinct */
+}
+
+.hero-btn:hover {
+    background-color: #f0f0f0; /* Light grey background */
+    transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+/* Blog Preview Section */
+.blog-preview {
+    margin-top: 20px;
+}
+
+.blog-preview h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #0044cc; /* Blue color for headings */
+    text-align: center;
+}
+
+.blog-posts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.blog-post {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: center;
+}
+
+.blog-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.blog-content {
+    padding: 10px;
+}
+
+.blog-post h3 {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+}
+
+.blog-post a {
+    text-decoration: none;
+    color: #0044cc; /* Blue color for links */
+}
+
+.blog-post a:hover {
+    text-decoration: underline;
+}
+
+/* Form Styles */
+.form-container {
+    max-width: 450px; /* Increased width */
+    margin: 20px auto;
+    padding: 25px; /* Increased padding */
+    background-color: #ffffff;
+    border-radius: 12px; /* Slightly more rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+    border: 1px solid #ddd; /* Subtle border for better definition */
+}
+
+.form-container h1 {
+    text-align: center;
+    color: #0044cc; /* Blue color for headings */
+    margin-bottom: 25px; /* Increased margin */
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 25px; /* Increased spacing */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px; /* Increased margin */
+    font-weight: 600;
+    color: #333;
+    font-size: 18px; /* Slightly larger font */
+}
+
+.form-control {
+    width: 100%;
+    padding: 14px; /* Increased padding */
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Slightly more rounded corners */
+    font-size: 16px;
+    box-sizing: border-box; /* Ensures padding doesn't affect the width */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #0044cc; /* Blue border on focus */
+    box-shadow: 0 0 10px rgba(0, 68, 204, 0.3); /* Subtle shadow on focus */
+    outline: none; /* Remove default focus outline */
+}
+
+.btn, button[type="submit"] {
+    background-color: #0044cc; /* Blue background for button */
+    color: #ffffff; /* White text color */
+    border: none;
+    padding: 14px 22px; /* Increased padding */
+    border-radius: 8px; /* Slightly more rounded corners */
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover, button[type="submit"]:hover {
+    background-color: #0033aa; /* Darker blue on hover */
+    transform: scale(1.02); /* Slightly scale up on hover */
+}
+
+.btn:active, button[type="submit"]:active {
+    background-color: #002a80; /* Even darker blue on click */
+    transform: scale(0.98); /* Slightly scale down on click */
+}
+
+/* Message Styles */
+.messages {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0 0; /* Increased margin */
+}
+
+.messages li {
+    background-color: #f8d7da; /* Light red background for error messages */
+    color: #721c24; /* Red text color */
+    padding: 14px; /* Increased padding */
+    border: 1px solid #f5c6cb;
+    border-radius: 8px; /* Slightly more rounded corners */
+    margin-bottom: 12px; /* Increased margin */
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Footer */
+footer {
+    background-color: #0044cc;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+    .navbar-list {
+        flex-direction: column;
+        align-items: center; /* Center items in column direction */
+    }
+
+    .navbar-list li {
+        margin: 10px 0;
+    }
+
+    .form-container {
+        padding: 20px; /* Adjusted padding for small screens */
+    }
+
+    .blog-posts {
+        flex-direction: column;
+    }
+
+    .blog-post {
+        flex: 1 1 100%;
+    }
+
+    .hero {
+        padding: 80px 20px; /* Adjust padding for smaller screens */
+    }
+
+    .hero h1 {
+        font-size: 2.5em; /* Adjust font size for smaller screens */
+    }
+
+    .hero p {
+        font-size: 1.2em; /* Adjust font size for smaller screens */
+    }
+
+    .hero-btn {
+        padding: 12px 20px; /* Adjust padding for smaller screens */
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+}

@@ -1,0 +1,10 @@
+<!-- myapp/templates/doctor_dashboard.html -->
+{% extends 'home.html' %}
+
+{% block title %}Doctor Dashboard{% endblock %}
+
+{% block content %}
+    <h1>Doctor Dashboard</h1>
+    <a href="{% url 'create_blog' %}">Create Blog Post</a><br>
+    <a href="{% url 'blog_list' %}">View All Blog Posts</a>
+{% endblock %}
