@@ -52,20 +52,29 @@ TEMPLATES = [
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
 # Database settings
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'myblog',  # Replace with your actual database name
+#         'USER': 'root',
+#         'PASSWORD': 'xsQmOcWzRQhsKvtSBF9p',
+#         'HOST': 'vercel.cb0w2qqcauk0.us-east-1.rds.amazonaws.com',
+#         'PORT': '3306',
+#         'OPTIONS': {
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION'",
+#         }
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'myblog',  # Replace with your actual database name
-        'USER': 'root',
-        'PASSWORD': 'xsQmOcWzRQhsKvtSBF9p',
-        'HOST': 'vercel.cb0w2qqcauk0.us-east-1.rds.amazonaws.com',
-        'PORT': '3306',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION'",
-        }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres.mvgdlcbhvrkyqfgkavgw',
+        'PASSWORD':'UwwPc7KzpzHqvVK1',
+        'HOST': 'aws-0-ap-southeast-1.pooler.supabase.com',
+        'PORT': '6543',
     }
 }
-
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
